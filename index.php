@@ -1,15 +1,24 @@
 <?php
 
-include('classes/Ghost.php');
+require_once("classes/Character.php");
+require_once("classes/AttackInterface.php");
+require_once("classes/Ghost.php");
+require_once("classes/Samurai.php");
 
-function doCombat(Character $character)
+function doMove(Character $character)
 {
     $character->move();
-    $character->attack(); 
+}
+
+function doAtack(AttackInterface $samurai)
+{
+    $samurai->attack();
 }
 
 $enemy = new Ghost();
-doCombat($enemy); 
+doMove($enemy); 
 
+$hero = new Samurai();
+doAtack($hero);
 
 ?>
